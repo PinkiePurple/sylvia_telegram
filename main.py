@@ -1,6 +1,8 @@
 import imports
 import bot
 import mongo
+import definitions
+
 load_dotenv()
 
 telegram_token = os.getenv("TELEGRAM_TOKEN")
