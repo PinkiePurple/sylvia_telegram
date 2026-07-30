@@ -21,3 +21,12 @@ async def record_user_snapshot(user):
             return
         await history_col.insert_one(snapshot) #entry
 
+async def typing_action(chat_id: int, context: CallbackContext, response_text: str) -> None: #add typng indicatore to ther chat for human like feel
+    read_pause =random.uniform(0.5, 1.0) #rndom delay for typing
+    await asyncio.sleep(read_pause) #wait for the delay
+    await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING) #typing action
+    chars = len(response_text) #get the length of the response text
+    typing_time = min(chars * 0.022 + random.uniform(02, 0.6), 4.0) #calculate the typing time based on the length of the text
+    await asyncio.sleep(typing_time) #wait for the typing time
+
+
