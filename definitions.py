@@ -28,5 +28,3 @@ async def typing_action(chat_id: int, context: CallbackContext, response_text: s
     chars = len(response_text) #get the length of the response text
     typing_time = min(chars * 0.022 + random.uniform(02, 0.6), 4.0) #calculate the typing time based on the length of the text
     await asyncio.sleep(typing_time) #wait for the typing time
-
-
