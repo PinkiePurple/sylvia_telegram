@@ -2,6 +2,7 @@ import imports
 import bot
 import mongo
 import definitions
+import query
 
 load_dotenv()
 
@@ -20,3 +21,6 @@ groq_models = [
 ]
 
 klipy_api_key = os.getenv("KLIPY_API_KEY")
+
+def get_fallback() -> str:
+    return random.choice(query.FALLBACK_MESSAGES)
